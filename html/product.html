@@ -42,11 +42,12 @@
                         <span class="cart-count" id="cartCount">0</span>
                     </button>
                     <div class="auth-section" id="authSection">
-                        <div>
-                            <span class="login-btn">LogIn</span>
+                        <div class="login">
+                        
+                            <a href="/html/login.html" class="login-btn">Login</a>
                         </div>
                         <button class="sign-in-btn" id="signInBtn">
-                            <span>SignUp</span>
+                           <a href="html/login.html">SingUp</a>
                         </button>
                     </div>
                 </nav>
@@ -54,7 +55,7 @@
         </div>
     </header>
     <section class="hero">
-        <img src="/image/travel-concept-with-shirt-headphones.jpg"
+        <img src="/image/Zeus - polohemd mit tigerdruck - Zebra _ 3XL.jpg"
             alt="MovieApp Hero" class="hero-image" />
         <div class="overlay"></div>
         <div class="hero-content">
@@ -63,8 +64,23 @@
             <a href="html/auth.html" class="shop-now-btn">Get Started</a>
         </div>
     </section>
-
-
+    
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+          <button class="close-btn" id="closeCartModal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+          <h2>Your Cart</h2>
+          <div id="cartItems" class="cart-items">
+            <!-- Cart items will be inserted here -->
+          </div>
+          <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">$0.00</span>
+          </div>
+          <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+        </div>
+      </div>
     <div class="container product-title">
         <h1>Our Products</h1>
         <div class="item-products">  
