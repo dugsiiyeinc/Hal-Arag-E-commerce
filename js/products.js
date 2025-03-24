@@ -1,8 +1,16 @@
 
+document.addEventListener("DOMContentLoaded", function() {
+  productCart();
+  countItemInTheCart();
+  let carts = JSON.parse(localStorage.getItem("cart")) || [];
+  carts.forEach((item) => {
+    displayCartItem(item);
+  });
+  
 
+  })
 const itemProducts = document.querySelector(".item-products")
-productCart();
-// countItemInTheCart();
+
 
 async function productCart() {
     try {
@@ -21,8 +29,9 @@ async function productCart() {
 
 
 function displayProduct(products) {
+  console.log(products);
     const curentProduct = products
-    const newItem = products.map(({image , title, price, id }) => {
+    const newItem = products?.map(({image , title, price, id }) => {
         return `
         <div class="item">
         <img src="${image}" alt="${title}">
@@ -38,8 +47,11 @@ function displayProduct(products) {
     itemProducts.querySelectorAll(".add-to-cart-btn").forEach((button)=>{
         button.addEventListener("click", ()=>{
             const {id} = button.dataset;
-            let product = curentProduct.find( products => products.id === id)
+            let product = curentProduct.find( (products) => products.id == id)
+            console.log(product)
             addTocart(product)
+            displayCartItem(product)
+            countItemInTheCart()
         })
     })
 
@@ -49,10 +61,11 @@ const cartBtn = document.querySelector("#cartBtn")
 const cartModal = document.querySelector("#cartModal")
 const closeCartModal = document.querySelector("#closeCartModal")
 const cartItems =document.querySelector("#cartItems")
+console.log(cartItems)
 
 cartBtn.addEventListener('click', () => {
     cartModal.classList.add('active');
-    renderCart();
+    
   })
   
 closeCartModal.addEventListener('click', () => {
@@ -61,75 +74,92 @@ closeCartModal.addEventListener('click', () => {
 
 
 
+  function addTocart(item) {
+    let carts = JSON.parse(localStorage.getItem("cart")) || [];
+    let existingTocart = carts.find((cartItem) => cartItem.id === item.id)
+    if (existingTocart) {
+      existingTocart.quantity += 1;
+    } else {
+      carts.push({ ...item, quantity: 1 });
+    }
+    localStorage.setItem("cart", JSON.stringify(carts));
+    countItemInTheCart()
+  }
 
-//   function renderCart() {
-//     let cart = JSON.parse(localStorage.getItem('cart'));
-//     cartItems.innerHTML = cart.map((item) =>
-//       `<div class="cart-item">
-//         <img src="${item.image}" alt="${item.title}">
-//         <div class="cart-item-details">
-//           <h4>${item.title}</h4>
-//           <p>$${item.price.toFixed(2)} × ${item.quantity}</p>
-//         </div>
-//         <div class="cart-item-actions">
-//           <button class="quantity-btn" data-id="${item.id
-//       }" data-action="decrease">-</button>
-//           <span>${item.quantity}</span>
-//           <button class="quantity-btn" data-id="${item.id
-//       }" data-action="increase">+</button>
-//         </div>
-//       </div>
-//     `).join("");
-//     cartItems.querySelectorAll(".quantity-btn").forEach((quantityBtn) => {
-//       quantityBtn.addEventListener("click", () => {
-//         const { id, action } = quantityBtn.dataset;
-  
-//         let cartItem = cart.find((crt) => crt.id == id);
-  
-//         if (action == "increase") {
-//           cartItem.quantity += 1;
-//           localStorage.setItem("cart", JSON.stringify(cart));
-//         } else if (action == "decrease") {
-//           cartItem.quantity -= 1;
-//           if (cartItem.quantity === 0) {
-//             cart = cart.filter((crt) => crt.id != id);
-//           }
-//           localStorage.setItem("cart", JSON.stringify(cart));
-//         }
-//         // countItemInTheCart()
-//         renderCart();
-//       });
-  
-//     })
-  
-  
-//   }
 
-  
-// function addTocart(item) {
-//     let carts = JSON.parse(localStorage.getItem("cart")) || [];
-//     let existingTocart = carts.find((cartItem) => cartItem.id === item.id)
-//     if (existingTocart) {
-//       existingTocart.quantity += 1;
-//     } else {
-//       carts.push({ ...item, quantity: 1 });
-//     }
-//     localStorage.setItem("cart", JSON.stringify(carts));
-//     // countItemInTheCart()
+
+
+  function displayCartItem(item) {
     
-//   }
+    console.log(item);
+    cartItems.innerHTML +=
+      `<div class="cart-item">
+        <img src="${item.image}" alt="${item.title}">
+        <div class="cart-item-details">
+          <h4>${item.title}</h4>
+          <p>$${item.price} × ${item.quantity}</p>
+        </div>
+        <div class="cart-item-actions">
+          <button class="quantity-btn" data-id="${item.id
+      }" data-action="decrease">-</button>
+          <span>${item.quantity}</span>
+          <button class="quantity-btn" data-id="${item.id
+      }" data-action="increase">+</button>
+        </div>
+      </div>
+    `
+    cartItems.querySelectorAll(".quantity-btn").forEach((quantityBtn) => {
+      quantityBtn.addEventListener("click", () => {
+        const { id, action } = quantityBtn.dataset;
   
-//   function countItemInTheCart() {
-//     let cartCount = document.querySelector('#cartCount');
-//     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-//     cartCount.textContent = cart.length;
-//     calculateCartItems()
-//   }
+        let cartItem = cart.find((crt) => crt.id == id);
   
-//   function calculateCartItems() {
-//     let cartTotal = document.querySelector('#cartTotal');
-//     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-//     let total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-//     cartTotal.textContent = total.toFixed(2);
-//   }
+        if (action == "increase") {
+          cartItem.quantity += 1;
+          localStorage.setItem("cart", JSON.stringify(cart));
+        } else if (action == "decrease") {
+          cartItem.quantity -= 1;
+          if (cartItem.quantity === 0) {
+            cart = cart.filter((crt) => crt.id != id);
+          }
+          localStorage.setItem("cart", JSON.stringify(cart));
+        }
+        countItemInTheCart()
+        // renderCart();
+      });
+  
+    })
+  
+  
+  }
+
+  
+function addTocart(item) {
+    let carts = JSON.parse(localStorage.getItem("cart")) || [];
+    let existingTocart = carts.find((cartItem) => cartItem.id === item.id)
+    if (existingTocart) {
+      existingTocart.quantity += 1;
+    } else {
+      carts.push({ ...item, quantity: 1 });
+    }
+    localStorage.setItem("cart", JSON.stringify(carts));
+    countItemInTheCart()
+    
+  }
+  
+  function countItemInTheCart() {
+    let cartCount = document.querySelector('#cartCount');
+  
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    console.log(cart.length)
+    cartCount.textContent = cart.length;
+    calculateCartItems()
+  }
+  
+  function calculateCartItems() {
+    let cartTotal = document.querySelector('#cartTotal');
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+    cartTotal.textContent = total.toFixed(2);
+  }
 
