@@ -61,16 +61,16 @@ const cartBtn = document.querySelector("#cartBtn")
 const cartModal = document.querySelector("#cartModal")
 const closeCartModal = document.querySelector("#closeCartModal")
 const cartItems =document.querySelector("#cartItems")
-console.log(cartItems)
+// console.log(cartItems)
 
-cartBtn.addEventListener('click', () => {
-    cartModal.classList.add('active');
+// cartBtn.addEventListener('click', () => {
+//     cartModal.classList.add('active');
     
-  })
+//   })
   
-closeCartModal.addEventListener('click', () => {
-    cartModal.classList.remove('active');
-  })
+// closeCartModal.addEventListener('click', () => {
+//     cartModal.classList.remove('active');
+//   })
 
 
 
@@ -133,19 +133,29 @@ closeCartModal.addEventListener('click', () => {
   
   }
 
-  
-function addTocart(item) {
-    let carts = JSON.parse(localStorage.getItem("cart")) || [];
-    let existingTocart = carts.find((cartItem) => cartItem.id === item.id)
-    if (existingTocart) {
-      existingTocart.quantity += 1;
-    } else {
-      carts.push({ ...item, quantity: 1 });
-    }
-    localStorage.setItem("cart", JSON.stringify(carts));
-    countItemInTheCart()
+//   const userLoggedIn = false;
+// function addTocart(item) {
+//   if (!userLoggedIn) {
+//     alert("Please Login First!");
+//     return;
+//   }
+
+
+
+
+
+ 
+//     let carts = JSON.parse(localStorage.getItem("cart")) || [];
+//     let existingTocart = carts.find((cartItem) => cartItem.id === item.id)
+//     if (existingTocart) {
+//       existingTocart.quantity += 1;
+//     } else {
+//       carts.push({ ...item, quantity: 1 });
+//     }
+//     localStorage.setItem("cart", JSON.stringify(carts));
+//     countItemInTheCart()
     
-  }
+//   }
   
   function countItemInTheCart() {
     let cartCount = document.querySelector('#cartCount');
