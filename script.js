@@ -39,3 +39,4 @@ function displayProduct(products){
     
     productsGrid.forEach(grid => grid.innerHTML = newProduct);
 }
+

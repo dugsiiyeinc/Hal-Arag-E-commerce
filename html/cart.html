@@ -7,7 +7,7 @@
     <title>Hal Arag E-commerce </title>
     <link rel="stylesheet" href="/main.css">
     <link rel="stylesheet" href="/css/footer.css">
-    <!-- <link rel="stylesheet" href="/css/products.css"> -->
+    <link rel="stylesheet" href="/css/cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 
 </head>
@@ -53,17 +53,17 @@
         </div>
     </header>
 
-    <div class="modal" id="cartModal">
-        <div class="modal-content">
-            <h2>Your Cart</h2>
+    <div class="modal container" id="cartModal">
+        <div class="modal-content ">
+            <h2>Shopping Cart</h2>
             <div id="cartItems" class="cart-items">
                 <!-- Cart items will be inserted here -->
             </div>
             <div class="cart-total">
-                <span>Total:</span>
-                <span id="cartTotal">$0.00</span>
+                <span class="Total">Total:</span>
+                <span id="cartTotal"> $0.00 </span>
+                <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
             </div>
-            <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
         </div>
     </div>
 

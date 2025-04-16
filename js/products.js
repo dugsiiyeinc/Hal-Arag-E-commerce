@@ -133,29 +133,6 @@ const cartItems =document.querySelector("#cartItems")
   
   }
 
-//   const userLoggedIn = false;
-// function addTocart(item) {
-//   if (!userLoggedIn) {
-//     alert("Please Login First!");
-//     return;
-//   }
-
-
-
-
-
- 
-//     let carts = JSON.parse(localStorage.getItem("cart")) || [];
-//     let existingTocart = carts.find((cartItem) => cartItem.id === item.id)
-//     if (existingTocart) {
-//       existingTocart.quantity += 1;
-//     } else {
-//       carts.push({ ...item, quantity: 1 });
-//     }
-//     localStorage.setItem("cart", JSON.stringify(carts));
-//     countItemInTheCart()
-    
-//   }
   
   function countItemInTheCart() {
     let cartCount = document.querySelector('#cartCount');
