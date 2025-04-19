@@ -77,19 +77,21 @@
 
 .about-container{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 2rem;
     
 }
-
+.about-container{
+    display: flex;
+    justify-content: center;
+    
+}
 .about-container img{
-    width: 50%;
-    height: 50vh;
+    width: 100%;
+    height: 60vh;
     object-fit: cover;
-    border-radius: 5px;
-
-    margin-right: 40px;
-    box-shadow: 10px 0 15px rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    /* box-shadow: 10px 0 15px rgba(255, 255, 255, 0.2); */
 }
 
 
@@ -113,7 +115,7 @@
     font-size: 1rem;
     color: #000000;
     width: 75%;
-    line-height: 20px;
+    line-height: 25px;
     margin-bottom: 20px;
     transition: color 0.3s;
     transition: background-color 0.3s;
@@ -149,6 +151,7 @@
 .grid-info h2{
     font-size: 1.2rem;
     margin-bottom: 10px;
+    color: #DD9D27;
 
 }
 
@@ -158,8 +161,8 @@
 }
 
 .grid-info p{
-    font-size: 0.7rem;
-    color: #565454;
+    font-size: 1rem;
+    color: #DD9D27;
     line-height: 20px;
     margin-bottom: 20px;
 }
@@ -180,6 +183,15 @@
     gap: 20px;  
 }
 
+.Arrivals-shoes{
+    background-image: url("/image/download\ \(4\).jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-position: center;
+    border-radius: 5px;
+    
+}
 .Arrivals-women{
     background-image: url("/image/Retro\ vintage\ denim\ shirt\ -\ Blue\ Gray\ _\ M.jpg");
     background-size: cover;

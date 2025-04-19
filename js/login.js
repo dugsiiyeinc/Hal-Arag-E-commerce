@@ -31,7 +31,7 @@ authForm.addEventListener("submit", (e) => {
         const exestingUser = users.find((user) => user.email == email.value && user.password == password.value)    
         if(exestingUser){
             localStorage.setItem("onlineUser" , JSON.stringify(exestingUser))
-            window.location.href = '../html/movies.html'
+            window.location.href = '../index.html'
         }else{
             alert("Invalid Credentials")
             return

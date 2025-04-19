@@ -26,6 +26,8 @@ img{
     position: fixed;
     background-color: #ffffff;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+    top: 0;
+    z-index: 1;
     
 }
 
@@ -148,19 +150,12 @@ img{
 }
 
 
-/* .sign-in-btn:hover {
-    background-color: transparent;
-    border: 1px solid #DD9D27;
-    color: #DD9D27;
-} */
+
 
 
 .hero {
-    height: 100vh;
-    background: url("/image/fashionable-young-guy-sunglasses-dressed-t-shirt-denim-jacket-holds-longboard-isolated-dark-background.jpg");
-    background-size: cover;
-    background-position: top; 
-    background-repeat: no-repeat;
+    /* position: relative; */
+    margin-top: 6rem;
 }
 
 .header-image img {
@@ -170,11 +165,14 @@ img{
 }
 
 .header-title {
+    position: absolute;
     font-size: 3rem;
     color: white;
     text-align: center;
     padding-top: 15vh;
-    margin-right: 70vh;
+    left: 3rem;
+    top: 5rem;
+    
 }
 
 .header-title h1 {
@@ -218,11 +216,7 @@ img{
     border: 1px solid #DD9D27;
 }
 
-.cart {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1rem;
-}
+
 
 .title-cart {
     text-align: center;
@@ -233,75 +227,8 @@ img{
     margin-top: 2rem;
 }
 
-.cart-item {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    color: black;
-    border-radius: 0.5rem;
-    border: 0.1rem solid rgb(53, 52, 52);
-    /* box-shadow: 2px 2px 2px rgba(0, 0,0,0.5); */
-    padding: 1rem;
-    margin-top: 2rem;
-    transition: background-color 0.2s;
-
-}
-
-/* .cart-item:hover {
-    background-color: #dfdfdf;
-    color: black;
-    cursor: pointer;
-    border: 2px solid #DD9D27;
-} */
-
-.item-details span {
-    color: #DD9D27;
-    font-weight: 700;
-    margin-bottom: 0.421rem;
-    margin-top: 1rem;
-    justify-content: center;
-    align-items: center;
-    
-
-}
-
-.cart-item img {
-    width: 85%;
-    height: auto;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    object-fit: cover;
-    margin-bottom: 1rem;
-}
-
-.cart-item h3 {
-    font-size: 1.5rem;
-
-}
-
-.cart-item p {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-
-}
-
-.star-rating img {
-    width: 40%;
-    height: auto;
 
 
-
-}
-
-.item-actions a {
-    color: white;
-    text-decoration: none;
-    margin-right: 1rem;
-    font-size: 1rem;
-    transition: color 0.2s;
-
-}
 
 .product-card {
     margin-top: 2rem;
@@ -396,6 +323,8 @@ img{
 
     .toggle-button {
         display: flex;
+        color: #000000;
+        top: auto;
         
     }
 
