@@ -98,7 +98,7 @@ img {
     border: none;
     color: #DD9D27;
     cursor: pointer;
-    /* margin-right: 3rem; */
+    margin-right: 3rem;
   }
   
 .cart-btn img {
@@ -133,7 +133,7 @@ img {
 .auth-section {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    justify-content: center;
 
 }
 
@@ -153,8 +153,6 @@ img {
     transition: background-color 0.2s;
 
 }
-
-
 
 .login-btn:hover {
     background-color: #DD9D27;
@@ -178,10 +176,45 @@ img {
     color: #ffffff;
 }
 
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+}
 
+.user {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    gap: 0.5rem;
+    align-items: center;
+    width: 100%;
+}
 
-.userName {
-    color: #DD9D27;
+#navbar img {
+    display: none;
+    width: 35%;
+}
+
+#navbar span {
+    color: rgb(30, 30, 30);
+    font-size: 1.2rem;
+    margin-right: 1rem;
+
+}
+
+#authBtn {
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border: 0.5px solid #DD9D27;
+    background-color: #DD9D27;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 .hero {
@@ -503,43 +536,3 @@ img {
 
 }
 
-#navbar {
-    display: flex;
-    /* justify-content: space-between; */
-    align-items: center;
-    gap: 3rem;
-}
-
-.user {
-    display: flex;
-    /* flex-direction: column; */
-    justify-content: center;
-    gap: 0.5rem;
-    align-items: center;
-    width: 100%;
-}
-
-#navbar img {
-    display: none;
-    width: 6vh;
-}
-
-#navbar span {
-    color: rgb(30, 30, 30);
-    font-size: 1.2rem;
-    margin-right: 2rem;
-
-}
-
-#authBtn {
-    padding: 0.5rem 1rem;
-    background-color: transparent;
-    border: 0.5px solid #DD9D27;
-    background-color: #DD9D27;
-    border: none;
-    color: white;
-    font-size: 1rem;
-    border-radius: 0.375rem;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}

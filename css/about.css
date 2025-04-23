@@ -56,10 +56,12 @@
 .title{
     font-size: 3rem;
     margin-bottom: 20px;
+    color: white;
 }
 .subtitle{
     font-size: 1.5rem;
     margin-bottom: 30px;
+    color: white;
 }
 .shop-now-btn{
     background-color: #DD9D27;

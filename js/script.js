@@ -31,7 +31,7 @@ function renderProducts(products) {
   curentProducts = products
 
   const newProducts = products
-    .map(({ title, image, category, id, price }) => {
+    .map(({ title, image, id, price }) => {
       return `
     <div class="product-card">
   <img src="${image}" alt="${title}" class="product-image">

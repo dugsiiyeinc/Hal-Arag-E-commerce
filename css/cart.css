@@ -133,7 +133,7 @@
     font-size: 2rem;  
 }
 .checkout-btn {
-    width: 80%;
+    /* width: 80%; */
     padding: 0.75rem;
     font-size: 1rem;
     background-color: #DD9D27;
@@ -145,6 +145,12 @@
     justify-content: center;
     align-items: center;
     transition: background-color 0.2s;
+}
+.checkout-btn a{
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .checkout-btn:hover {
