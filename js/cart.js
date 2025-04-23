@@ -61,6 +61,7 @@ const cartBtn = document.querySelector("#cartBtn")
 const cartModal = document.querySelector("#cartModal")
 const closeCartModal = document.querySelector("#closeCartModal")
 const cartItems = document.querySelector("#cartItems")
+const cartEmpty = document.querySelector(".cart-empty")
 // console.log(cartItems)
 
 
@@ -76,14 +77,14 @@ function addTocart(item) {
   }
   localStorage.setItem("cart", JSON.stringify(carts));
   countItemInTheCart()
+ 
 }
 
-
-
-
 function displayCartItem(item) {
+   cartEmpty.style.display = "none"
+   
 let cart = JSON.parse(localStorage.getItem('cart'));
-  console.log(item);
+  // console.log(item);
   cartItems.innerHTML +=
     `<div class="cart-item container">
       <img src="${item.image}" alt="${item.title}">
@@ -100,56 +101,43 @@ let cart = JSON.parse(localStorage.getItem('cart'));
       </div> 
     </div>
   `
+  
   cartItems.querySelectorAll(".quantity-btn").forEach((quantityBtn) => {
     quantityBtn.addEventListener("click", () => {
       const { id, action } = quantityBtn.dataset;
+      console.log(id, action)
 
       let cartItem = cart.find((crt) => crt.id == id);
 
       if (action == "increase") {
         cartItem.quantity += 1;
+        countItemInTheCart()
+        console.log(cart)
         localStorage.setItem("cart", JSON.stringify(cart));
       } else if (action == "decrease") {
-        cartItem.quantity -= 1;
         if (cartItem.quantity === 0) {
-          cart = cart.filter((crt) => crt.id != id);
+          cart = cart.filter((crt) => crt.id !== id);
+          countItemInTheCart()
+          localStorage.setItem("cart", JSON.stringify(cart));
         }
+
+        cartItem.quantity -= 1;
+        countItemInTheCart()
         localStorage.setItem("cart", JSON.stringify(cart));
       }
-      countItemInTheCart()
+      
+      
     });
 
     const cartTotal = document.querySelector(".cart-total")
     cartTotal.style.display = "flex"
+    
 
   })
 
 
 }
 
-const userLoggedIn = false;
-function addTocart(item) {
-  if (!userLoggedIn) {
-    alert("Please Login First!");
-    return;
-  }
-
-
-
-
-
-
-  let carts = JSON.parse(localStorage.getItem("cart")) || [];
-  let existingTocart = carts.find((cartItem) => cartItem.id === item.id)
-  if (existingTocart) {
-    existingTocart.quantity += 1;
-  } else {
-    carts.push({ ...item, quantity: 1 });
-  }
-  localStorage.setItem("cart", JSON.stringify(carts));
-  countItemInTheCart()
-
-}
 
 function countItemInTheCart() {
   let cartCount = document.querySelector('#cartCount');

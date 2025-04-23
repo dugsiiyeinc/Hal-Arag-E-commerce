@@ -8,9 +8,9 @@
 }
 
 body {
-    background-color:rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
     font-family: "Roboto", serif;
-    color: white;
+    /* color: white; */
 }
 
 .container {
@@ -18,17 +18,18 @@ body {
     margin: 0 auto;
 }
 
-img{
+img {
     max-width: 100%;
     height: auto;
 }
+
 .header {
     position: fixed;
     background-color: #ffffff;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
     top: 0;
     z-index: 1;
-    
+
 }
 
 
@@ -41,12 +42,13 @@ img{
     width: 30px;
     height: 21px;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .toggle-button .bar {
     height: 3px;
     width: 100%;
-    background-color: white;
+    background-color: #DD9D27;
     border-radius: 10px;
 }
 
@@ -89,7 +91,33 @@ img{
 
 }
 
+.cart-btn {
+    position: relative;
+    padding: 0.5rem;
+    background: none;
+    border: none;
+    color: #DD9D27;
+    cursor: pointer;
+    /* margin-right: 3rem; */
+  }
+  
+.cart-btn img {
+    color: #DD9D27;
+    width: 85%;
 
+
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -3px;
+    background-color: #DD9D27;
+    color: white;
+    font-size: 0.86rem;
+    padding: 0.125rem 0.375rem;
+    border-radius: 9999px;
+}
 
 .user-section {
     display: flex;
@@ -108,7 +136,8 @@ img{
     gap: 2rem;
 
 }
-.login a{
+
+.login a {
     text-decoration: none;
     color: #DD9D27;
 }
@@ -144,18 +173,20 @@ img{
     transition: background-color 0.2s;
 }
 
-.sign-in-btn a{
+.sign-in-btn a {
     text-decoration: none;
     color: #ffffff;
 }
 
 
 
-
+.userName {
+    color: #DD9D27;
+}
 
 .hero {
     /* position: relative; */
-    margin-top: 6rem;
+    margin-top: 4rem;
 }
 
 .header-image img {
@@ -172,7 +203,7 @@ img{
     padding-top: 15vh;
     left: 3rem;
     top: 5rem;
-    
+
 }
 
 .header-title h1 {
@@ -305,27 +336,20 @@ img{
 }
 
 
-
-
-
-
-
 @media (max-width: 768px) {
-    
+
     .navbar {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        
-        
-       
+
     }
 
     .toggle-button {
         display: flex;
         color: #000000;
-        top: auto;
-        
+        top: 30px;
+
     }
 
     .nav-link {
@@ -337,24 +361,47 @@ img{
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-left: 8rem;
         font-size: 2rem;
-        
+    }
+    .nav-link .links a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        padding: 0 10px;
+        margin: 0 1rem;
+        color: #000000;
+        font-weight: 200px;
+        margin-left: 100%;
         
     }
+
     .cart-btn {
         display: none;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         margin-bottom: 2rem;
-        
+
     }
-    .auth-section{
+    .cart-btn img{
+        width: 15%;
+    }
+    .cart-count {
+        position: absolute;
+        top: -5px;
+        right: 8.3rem;
+        background-color: #DD9D27;
+        color: white;
+        font-size: 1rem;
+        padding: 0.125rem 0.375rem;
+        border-radius: 9999px;
+    }
+
+    .auth-section {
         display: none;
         flex-direction: row;
-        margin-right: 1rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
     }
 
     .navbar.active .cart-btn {
@@ -363,14 +410,15 @@ img{
         justify-content: center;
         margin-right: 1rem;
     }
-    .navbar.active .auth-section{
+
+    .navbar.active .auth-section {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-right: 1rem;
+        gap: 1rem;
     }
 
-    
+
 
     .nav-link ul {
         flex-direction: column;
@@ -382,66 +430,116 @@ img{
 
     .nav-link li {
         text-align: center;
+        justify-content: center;
         padding: 10px;
         line-height: 20px;
         font-weight: bold;
     }
-    
+
     .nav-link a {
         padding: 10px;
         line-height: 20px;
     }
-    .navbar.active .nav-link{
+
+    .navbar.active .nav-link {
         max-height: 300px;
         opacity: 1;
         transition: max-height 0.5s ease-in, opacity 0.5s ease-in;
     }
-    
 
-    .navbar.active .toggle-button .bar:nth-child(2){
+
+    .navbar.active .toggle-button .bar:nth-child(2) {
         opacity: 0;
     }
-    .navbar.active .toggle-button .bar:nth-child(1){
+
+    .navbar.active .toggle-button .bar:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
     }
-    .navbar.active .toggle-button .bar:nth-child(3){
+
+    .navbar.active .toggle-button .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
-    .hero{
+
+    .hero {
         height: 300px;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
-       
+
     }
-    .header-title{
+
+    .header-title {
         text-align: center;
         padding-top: 5vh;
         margin-right: 20px;
     }
-    .header-title h1{
-        font-size: 2.5rem;
-        margin-bottom: 1rem; 
-    }
-    .header-title h3{
-        font-size: 1.8rem;
-       
-    }
-    .header-title p{
-        font-size: 1.5rem;
-        
-        
-    }
-    
 
-   
+    .header-title h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .header-title h3 {
+        font-size: 1.8rem;
+
+    }
+
+    .header-title p {
+        font-size: 1.5rem;
+
+
+    }
+
+
+
     .cart-item {
         margin-top: 1rem;
     }
+
     .products-grid {
         grid-template-columns: repeat(1, 1fr);
     }
-  
+
 
 }
 
+#navbar {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    gap: 3rem;
+}
+
+.user {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    gap: 0.5rem;
+    align-items: center;
+    width: 100%;
+}
+
+#navbar img {
+    display: none;
+    width: 6vh;
+}
+
+#navbar span {
+    color: rgb(30, 30, 30);
+    font-size: 1.2rem;
+    margin-right: 2rem;
+
+}
+
+#authBtn {
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border: 0.5px solid #DD9D27;
+    background-color: #DD9D27;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}

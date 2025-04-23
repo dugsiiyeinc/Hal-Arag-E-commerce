@@ -1,5 +1,4 @@
 // This is script file
-
 $('.testimonials-container').owlCarousel({
     loop:true,
     autoplay:true,

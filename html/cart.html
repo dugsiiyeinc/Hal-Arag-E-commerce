@@ -40,12 +40,18 @@
                         </a>     
                     </button>
                     <div class="auth-section" id="authSection">
+                        <div id="navbar">
+                            <div class="user">
+                                <img src="/image/user (1).png" alt="" class="userImage">
+                                <span id="welcomeUser"></span>
+                            </div>
+                            <button id="authBtn"></button>
+                        </div>
                         <div class="login">
-
                             <a href="/html/login.html" class="login-btn">Login</a>
                         </div>
                         <button class="sign-in-btn" id="signInBtn">
-                            <a href="html/login.html">SingUp</a>
+                            <a href="html/login.html" class="SingUp">SingUp</a>
                         </button>
                     </div>
                 </nav>
@@ -56,8 +62,16 @@
     <div class="modal container" id="cartModal">
         <div class="modal-content ">
             <h2>Shopping Cart</h2>
+
             <div id="cartItems" class="cart-items">
                 <!-- Cart items will be inserted here -->
+                <div class="cart-empty">
+                    <p class="empty">Your cart is empty. </p>
+                    <button>
+                        <a href="/html//login.html" class="shop-now-btn">Shopping Now</a>
+                    </button>
+                </div>
+
             </div>
             <div class="cart-total">
                 <span class="Total">Total:</span>
@@ -115,6 +129,7 @@
 </body>
 <!-- <script src="script.js"></script> -->
 <script src="/js/cart.js"></script>
+<script src="/js/script.js"></script>
 
 
 </html>

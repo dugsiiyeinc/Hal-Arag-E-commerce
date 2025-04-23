@@ -6,7 +6,6 @@
   border: none;
   color: #DD9D27;
   cursor: pointer;
-  margin-right: 3rem;
 }
 
 .cart-btn img{
@@ -30,7 +29,7 @@
 .hero{
     position: relative;
     display: flex;
-    height: 90vh;
+    height: 100vh;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -46,13 +45,14 @@
     filter: brightness(50%);
 
 }
+
 .overlay{
     position:absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    background: linear-gradient(to bottom, transparent,black ) ;
+    background: linear-gradient(to bottom, transparent,black);
 }
 .hero-content{
     position: absolute;
@@ -61,6 +61,7 @@
 .title{
     font-size: 3rem;
     margin-bottom: 20px;
+    color: white;
 }
 .subtitle{
     font-size: 1.5rem;
@@ -135,7 +136,7 @@
 
 .item img {
     width: 100%;
-    height: auto;
+    height: 300px;
     object-fit: cover;
     margin-bottom: 1rem;
     

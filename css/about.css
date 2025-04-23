@@ -6,7 +6,6 @@
     border: none;
     color: #DD9D27;
     cursor: pointer;
-    margin-right: 3rem;
   }
   
   .cart-btn img{
@@ -216,12 +215,12 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: 'Roboto', sans-serif;
+	/* font-family: 'Roboto', sans-serif; */
 
 	/* Variables for storing colors */
 	--card-clr: #161922;
 	--body-clr: #191d28;
-	--primary-clr: #f0bf6a;
+	--primary-clr: #DD9D27;
 	--heading-clr: #dadada;
 	--text-clr: #767a86;
 }
