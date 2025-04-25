@@ -8,7 +8,7 @@
 }
 
 body {
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(255, 255, 255); */
     font-family: "Roboto", serif;
     /* color: white; */
 }
@@ -151,6 +151,7 @@ img {
     border-radius: 0.375rem;
     cursor: pointer;
     transition: background-color 0.2s;
+    margin-right: 2rem;
 
 }
 
@@ -369,7 +370,13 @@ img {
 }
 
 
-@media (max-width: 768px) {
+
+@media (min-width: 481px) and (max-width: 768px) {
+    
+}
+    
+
+@media (max-width: 480px) {
 
     .navbar {
         flex-direction: column;
@@ -522,9 +529,6 @@ img {
 
 
     }
-
-
-
     .cart-item {
         margin-top: 1rem;
     }
@@ -532,7 +536,11 @@ img {
     .products-grid {
         grid-template-columns: repeat(1, 1fr);
     }
-
+    
+#navbar img {
+    display: none;
+    width: 22%;
+}
 
 }
 

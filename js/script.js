@@ -15,11 +15,11 @@ const API_URL = "https://fakestoreapi.com";
 
 let productsGrid = document.querySelector("#productsGrid");
 let categoryFilter = document.querySelector("#categoryFilter");
-let curentProducts = [];
+let currentProducts = [];
 async function FetchProduct() {
   try {
-    const reponse = await fetch(`${API_URL}/products`);
-    let data = await reponse.json();
+    const response = await fetch(`${API_URL}/products`);
+    let data = await response.json();
     renderProducts(data)
     console.log(data)
   } catch (error) {
@@ -28,7 +28,7 @@ async function FetchProduct() {
 }
 
 function renderProducts(products) {
-  curentProducts = products
+  currentProducts = products
 
   const newProducts = products
     .map(({ title, image, id, price }) => {
@@ -49,7 +49,7 @@ function renderProducts(products) {
   productsGrid.querySelectorAll(".add-to-cart-btn").forEach(button => {
     button.addEventListener("click", () => {
       const { id } = button.dataset;
-      let product = curentProducts.find(products => products.id == id);
+      let product = currentProducts.find(products => products.id == id);
       console.log({ ...product, quantity: 1 })
 
       const addToCartBtns = document.querySelectorAll(".add-to-cart-btn")
@@ -62,8 +62,8 @@ function renderProducts(products) {
             window.location.href = "/html/login.html"
             return
           }
-          addTocart(product)
-
+          
+          addToCart(product)
         })
 
       })
@@ -71,11 +71,11 @@ function renderProducts(products) {
   })
 }
 
-function addTocart(item) {
+function addToCart(item) {
   let carts = JSON.parse(localStorage.getItem("cart")) || [];
-  let existingTocart = carts.find((cartItem) => cartItem.id === item.id)
-  if (existingTocart) {
-    existingTocart.quantity += 1;
+  let existingToCart = carts.find((cartItem) => cartItem.id === item.id)
+  if (existingToCart) {
+    existingToCart.quantity += 0;
   } else {
     carts.push({ ...item, quantity: 1 });
   }

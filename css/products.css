@@ -1,31 +1,4 @@
 
-.cart-btn {
-  position: relative;
-  padding: 0.5rem;
-  background: none;
-  border: none;
-  color: #DD9D27;
-  cursor: pointer;
-}
-
-.cart-btn img{
-  color: #DD9D27;
-  width: 85%;
-  
-  
-}
-
-.cart-count {
-  position: absolute;
-  top: -5px;
-  right: -3px;
-  background-color: #DD9D27;
-  color: white;
-  font-size: 0.86rem;
-  padding: 0.125rem 0.375rem;
-  border-radius: 9999px;
-}
-
 .hero{
     position: relative;
     display: flex;
@@ -141,6 +114,44 @@
     margin-bottom: 1rem;
     
 }
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    margin-top:  2rem;
+}
+.search input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #DD9D27;
+    border-radius: 0.5rem;
+    margin-right: 1rem;
+    font-size: 1rem;
+}
+.search input[type="text"]:focus {
+    outline: none;
+    border-color: #DD9D27;
+}
+.filters{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    margin-top:  2rem;
+}
+.filters select {
+    padding: 0.5rem;
+    border: 1px solid #DD9D27;
+    border-radius: 0.5rem;
+    margin-right: 1rem;
+    font-size: 1rem;
+}
+.filters select:focus {
+    outline: none;
+    border-color: #DD9D27;
+}
+
 
 /* * Modal */ 
 .modal {
