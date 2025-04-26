@@ -31,24 +31,62 @@ async function productCart() {
   }
 }
 
+fetch('https://fakestoreapi.in/api/products')
+  .then(res => res.json())
+  .then(data => {
+    allProducts = data.products;
+    displayProduct(allProducts);
+    populateCategories(allProducts); // haddii aad rabto category-ga uu dynamic u noqdo
+  });
 
-function applyFilters() {
-  const category = document.querySelector("#categoryFilter").value;
-  const priceRange = document.querySelector("#priceFilter").value;
+const categoryFilter = document.getElementById('categoryFilter');
+const priceFilter = document.getElementById('priceFilter');
 
-  let filtered = currentProduct;
+let allProducts = []; // Waa in xogtaada markuu load gareeyo halkaan lagu keydiyaa
 
-  if (category) {
-    filtered = filtered.filter(p => p.category === category);
+// Filter function
+function filterProducts() {
+  let filtered = [...allProducts];
+
+  // Category filter
+  const selectedCategory = categoryFilter.value;
+  if (selectedCategory) {
+    filtered = filtered.filter(product => product.category === selectedCategory);
   }
 
-  if (priceRange) {
-    const [min, max] = priceRange.split("-").map(Number);
-    filtered = filtered.filter(p => p.price >= min && p.price <= max);
+  // Price filter
+  const selectedPrice = priceFilter.value;
+  if (selectedPrice) {
+    const [min, max] = selectedPrice.split('-').map(Number);
+    filtered = filtered.filter(product => product.price >= min && product.price <= max);
   }
 
-  showFilteredProducts(filtered);
+  // Ku muuji filtered products
+  displayProduct(filtered);
 }
+
+// Event listeners
+categoryFilter.addEventListener('change', filterProducts);
+priceFilter.addEventListener('change', filterProducts);
+
+// Event listeners
+categoryFilter.addEventListener('change', filterProducts);
+priceFilter.addEventListener('change', filterProducts);
+
+// Populate category filter haddii aysan horey kuu dhisin
+function populateCategories(products) {
+    const categories = [...new Set(products.map(p => p.category))];
+    categories.forEach(category => {
+        const option = document.createElement('option');
+        option.value = category;
+        option.textContent = category;
+        categoryFilter.appendChild(option);
+    });
+}
+
+// Haddii aad rabto markuu page load-gareeyo categories la buuxiyo
+populateCategories(allProducts);
+
 
 
 function displayProduct(products) {
