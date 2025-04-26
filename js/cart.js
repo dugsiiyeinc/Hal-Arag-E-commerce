@@ -29,7 +29,7 @@ async function productCart() {
 
 function displayProduct(products) {
   // console.log(products);
- 
+
   const newItem = products?.map(({ image, title, price, id }) => {
     return `
           <div class="item">
@@ -63,30 +63,10 @@ const cartItems = document.querySelector("#cartItems")
 const cartEmpty = document.querySelector(".cart-empty")
 // console.log(cartItems)
 
-
-
-
-// function addToCart(item) {
-//   let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-//   const existingItem = cart.find((cartItem) => cartItem.id == item.id);
-//   if (existingItem) {
-//     existingItem.quantity += 1;
-//   } else {
-//     cart.push({ ...item, quantity: 1 });
-//   }
-
-//   localStorage.setItem('cart', JSON.stringify(cart));
-//   countItemInTheCart()
-//   // console.log(cart)
-  
- 
-// }
-
 function displayCartItem(item) {
-   cartEmpty.style.display = "none"
-   
-let cart = JSON.parse(localStorage.getItem('cart'));
+  cartEmpty.style.display = "none"
+
+  let cart = JSON.parse(localStorage.getItem('cart'));
   // console.log(item);
   cartItems.innerHTML +=
     `<div class="cart-item container">
@@ -97,20 +77,20 @@ let cart = JSON.parse(localStorage.getItem('cart'));
         <div class="cart-item-actions">
         <button class="quantity-btn" data-id="${item.id
     }" data-action="decrease">-</button>
-        <span>${item.quantity}</span>
+        <span class="quantity" >${item.quantity}</span>
         <button class="quantity-btn" data-id="${item.id
     }" data-action="increase">+</button>
       </div>
       </div> 
     </div>
   `
-  
-  cartItems.querySelectorAll(".quantity-btn").forEach((quantityBtn) => {    
+
+  cartItems.querySelectorAll(".quantity-btn").forEach((quantityBtn) => {
     quantityBtn.addEventListener("click", () => {
       const { id, action } = quantityBtn.dataset;
       console.log(id, action)
       let cartItem = cart.find((crt) => crt.id == id);
-      
+
       if (action == "increase") {
         cartItem.quantity += 1;
         localStorage.setItem("cart", JSON.stringify(cart));
@@ -124,7 +104,7 @@ let cart = JSON.parse(localStorage.getItem('cart'));
           cartEmpty.style.display = "flex"
           cartTotal.style.display = "none"
         }
-        
+
         localStorage.setItem("cart", JSON.stringify(cart));
         countItemInTheCart()
         // location.reload()
@@ -137,10 +117,10 @@ let cart = JSON.parse(localStorage.getItem('cart'));
 
     })
 
-      // displayCartItem(cartItem)
+    // displayCartItem(cartItem)
     const cartTotal = document.querySelector(".cart-total")
     cartTotal.style.display = "flex"
-    
+
 
   })
 
@@ -168,6 +148,26 @@ cartBtn.addEventListener("click", () => {
     displayCartItem(item)
   })
 })
+
+const checkoutBtn = document.querySelector("#checkoutBtn")
+
+
+function handleCheckout() {
+  Swal.fire({
+    icon: 'success',
+    title: 'Congratulations!',
+    text: 'You have successfully purchased all your items.',
+    confirmButtonText: 'OK',
+    confirmButtonColor: '#F59E0B', // Midab huruud ah sida sawirkaaga
+
+  }).then(() => {
+    localStorage.removeItem("cart")
+    cartItems.innerHTML = ""
+    cartEmpty.style.display = "flex"
+    cartTotal.style.display = "none"
+    countItemInTheCart()
+  });
+}
 
 // function countItemInTheCart() {
 //   let cartCount = document.querySelector('#cartCount');

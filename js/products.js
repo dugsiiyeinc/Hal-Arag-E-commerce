@@ -36,13 +36,13 @@ fetch('https://fakestoreapi.in/api/products')
   .then(data => {
     allProducts = data.products;
     displayProduct(allProducts);
-    populateCategories(allProducts); // haddii aad rabto category-ga uu dynamic u noqdo
+    populateCategories(allProducts); 
   });
 
 const categoryFilter = document.getElementById('categoryFilter');
 const priceFilter = document.getElementById('priceFilter');
 
-let allProducts = []; // Waa in xogtaada markuu load gareeyo halkaan lagu keydiyaa
+let allProducts = []; 
 
 // Filter function
 function filterProducts() {
@@ -84,7 +84,7 @@ function populateCategories(products) {
     });
 }
 
-// Haddii aad rabto markuu page load-gareeyo categories la buuxiyo
+
 populateCategories(allProducts);
 
 
@@ -124,6 +124,7 @@ function showFilteredProducts(filteredProducts) {
       </div>
     `;
   }).join('');
+  // addToCart(item)
   itemProducts.innerHTML = newItem;
 }
 

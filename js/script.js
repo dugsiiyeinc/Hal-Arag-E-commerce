@@ -31,14 +31,12 @@ function renderProducts(products) {
   currentProducts = products
 
   const newProducts = products
-    .map(({ title, image, id, price }) => {
+    .map(({ title, image,  }) => {
       return `
     <div class="product-card">
   <img src="${image}" alt="${title}" class="product-image">
   <div class="product-info">
-    <h3>${title}</h3>
-    <p class="product-price">$${price.toFixed(2)}</p>
-    <button class="add-to-cart-btn" data-id="${id}">Add to Cart</button>
+   
   </div>
 </div>
     `
@@ -128,4 +126,42 @@ if (onlineUser) {
 
 
 }
+
+
+
+function scrollRightSection(sectionId){
+  const productsGrid= document.getElementById(sectionId)
+  productsGrid.scrollBy({left:300, behavior:"smooth"})
+  
+}
+function scrollLeftSection(sectionId){
+  const movieGrid= document.getElementById(sectionId)
+  movieGrid.scrollBy({left: -300, behavior:"smooth"})
+
+}
+
+
+// This is script file
+$('.testimonials-container').owlCarousel({
+    loop:true,
+    autoplay:true,
+    autoplayTimeout:6000,
+    margin:10,
+    nav:true,
+    navText:["<i class='fa-solid fa-arrow-left'></i>",
+             "<i class='fa-solid fa-arrow-right'></i>"],
+    responsive:{
+        0:{
+            items:1,
+            nav:false
+        },
+        600:{
+            items:1,
+            nav:true
+        },
+        768:{
+            items:2
+        },
+    }
+})
 
