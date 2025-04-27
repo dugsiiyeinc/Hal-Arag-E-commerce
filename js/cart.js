@@ -169,18 +169,5 @@ function handleCheckout() {
   });
 }
 
-// function countItemInTheCart() {
-//   let cartCount = document.querySelector('#cartCount');
-//   let cart = JSON.parse(localStorage.getItem('cart')) || [];
-//   console.log(cart.length)
-//   cartCount.textContent = cart.length;
-//   calculateCartItems()
-// }
 
-// function calculateCartItems() {
-//   let cartTotal = document.querySelector('#cartTotal');
-//   let cart = JSON.parse(localStorage.getItem('cart')) || [];
-//   let total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-//   cartTotal.textContent = total.toFixed(2);
-// }
 

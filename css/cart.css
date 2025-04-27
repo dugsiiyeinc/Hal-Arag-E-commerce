@@ -67,7 +67,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
 
-
 }
 
 
@@ -113,7 +112,7 @@
 #cartTotal{
     font-size: 2rem;  
 }
-.proceed-btn {
+.checkout-btn {
     /* width: 80%; */
     padding: 0.75rem;
     font-size: 1rem;
@@ -126,6 +125,14 @@
     justify-content: center;
     align-items: center;
     transition: background-color 0.2s;
+}
+
+.checkout-btn a{
+    text-decoration: none;
+    color: white;
+}
+.checkout-btn:hover {
+    background-color: #efa73b;
 }
 
 

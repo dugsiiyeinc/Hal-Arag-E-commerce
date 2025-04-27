@@ -145,10 +145,10 @@ function showFilteredProducts(filteredProducts) {
             window.location.href = "/html/login.html"
             return
           }
-          addToCart(product)
-          displayCartItem(product)
-          countItemInTheCart()
         })
+        addToCart(product)
+        displayCartItem(product)
+        countItemInTheCart()
       })
     })
   })

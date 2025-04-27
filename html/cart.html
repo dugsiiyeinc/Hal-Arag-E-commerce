@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hal Arag | Cart </title>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="/main.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/cart.css">
@@ -80,7 +79,9 @@
                 <span id="cartTotal"> $0.00 </span>
                 <div class="checkout">
 
-                    <button class="proceed-btn" onclick="handleCheckout()">Proceed to Checkout</button>
+                    <button class="checkout-btn" id="checkoutBtn">
+                        <a href="/html/checkout.html">Proceed to Checkout</a>
+                    </button>
 
                     <!-- <a href="/html/checkout.html" class="checkout-btn" id="checkoutBtn">Proceed to Checkout</a> -->
                 </div>

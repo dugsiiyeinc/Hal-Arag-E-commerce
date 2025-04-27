@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hal Arag | Chechout</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="/css//checkout.css">
+    <link rel="stylesheet" href="/css//cart.css">
     <link rel="stylesheet" href="/main.css">
 </head>
 <body>
@@ -14,7 +16,7 @@
 
         
         <div class="returnCart">
-            <a href="/">keep shopping</a>
+            <a href="/html/product.html">keep shopping</a>
             <h1>List Product in Cart</h1>
             <div class="list">
 
@@ -26,24 +28,24 @@
             <div class="form">
                 <div class="group">
                     <label for="name">Full Name</label>
-                    <input type="text" name="name" id="name">
+                    <input type="text" name="name" id="name" placeholder="Enter your name">
                 </div>
     
                 <div class="group">
                     <label for="phone">Phone Number</label>
-                    <input type="text" name="phone" id="phone">
+                    <input type="text" name="phone" id="phone" placeholder="Enter your phone number">
                 </div>
     
                 <div class="group">
                     <label for="address">Address</label>
-                    <input type="text" name="address" id="address">
+                    <input type="text" name="address" id="address" placeholder="Enter your address">
                 </div>
     
                 <div class="group">
                     <label for="country">Country</label>
                     <select name="country" id="country">
                         <option value="">Choose..</option>
-                        <option value="">Kingdom</option>
+                        <option value="Somalia">Somalia</option>
                     </select>
                 </div>
     
@@ -51,7 +53,7 @@
                     <label for="city">City</label>
                     <select name="city" id="city">
                         <option value="">Choose..</option>
-                        <option value="">London</option>
+                        <option value="Mogadisho">Mogadisho</option>
                     </select>
                 </div>
             </div>
@@ -65,10 +67,33 @@
                     <div class="totalPrice">$900</div>
                 </div>
             </div>
-            <button class="buttonCheckout">CHECKOUT</button>
+            <button class="buttonCheckout" onclick="handleCheckout()">Checkout</button>
             </div>
     </div>
 </div>
+
+
+    <div class="thankyou-container" id="thankyouMessage" style="display: none;">
+        <h1>Thank You! 🎉</h1>
+        <p>We received your order successfully.</p>
+
+        <div class="order-info">
+            <p><strong>Order ID:</strong> <span id="orderId"></span></p>
+            <p><strong>Total Paid:</strong> <span id="orderTotal"></span></p>
+            <p><strong>Items Purchased:</strong> <span id="orderQuantity"></span></p>
+        </div>
+
+        <h2>Your Purchased Items:</h2>
+        <div id="orderItems" class="order-items"></div> <!-- HALKAN PRODUCTS-KA SAWIRRADA -->
+
+        <div class="contact">
+            If you have any issues, please contact us: <br>
+            📞 +252 617122762
+        </div>
+
+        <a href="/index.html" class="btn-home">Back to Home</a>
+    </div>
+
 
 
 <script src="/js/checkout.js"></script>
