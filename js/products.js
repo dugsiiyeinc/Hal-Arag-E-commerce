@@ -129,29 +129,34 @@ function showFilteredProducts(filteredProducts) {
 }
 
   itemProducts.innerHTML = newItem;
-
   itemProducts.querySelectorAll(".add-to-cart-btn").forEach((button) => {
-
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (e) => {
       const { id } = button.dataset;
-      let product = currentProduct.find((products) => products.id == id)
-      const addToCartBtns = document.querySelectorAll(".add-to-cart-btn")
-      addToCartBtns.forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-          const onlineUser = JSON.parse(localStorage.getItem("onlineUser"))
-          if (!onlineUser) {
-            e.preventDefault()
-            alert("Fadlan marka hore iska diiwaan geli si aad wax ugu darto!")
-            window.location.href = "/html/login.html"
-            return
-          }
+      const onlineUser = JSON.parse(localStorage.getItem("onlineUser"));
+      
+      if (!onlineUser) {
+        e.preventDefault();
+        Swal.fire({
+          icon: 'warning',
+          title: 'No user is logged in!',
+          text: 'Please sign up or log in first to add items to your cart!',
+          confirmButtonText: 'Okay',
         })
-        addToCart(product)
-        displayCartItem(product)
-        countItemInTheCart()
+        .then(() => {
+          window.location.href = "/html/login.html"; 
+        });
+        
+      }
+  
+      let product = products.find((product) => product.id == id);
+      addToCart(product);
+      displayCartItem(product); // haddii aad haysato displayCartItem() function
+      countItemInTheCart();
+
+  
       })
     })
-  })
+
 
 }
 

@@ -126,6 +126,7 @@
     font-size: large;
     font-weight: bold;
 }
+
 .thankyou-container {
     background: #ffffff;
     padding: 40px;
@@ -134,11 +135,11 @@
     border: 2px solid #DD9D27;
     text-align: center;
     justify-content: center;
-    margin-top: 6rem;
-    margin-left: 20%;
-    /* max-width: 500px; */
-    width: 65%;
+    margin: 6rem;
+    top: 5rem;
+    max-width: 950px auto;
     animation: fadeIn 1s ease forwards;
+    
   }
   
   .thankyou-container h1 {

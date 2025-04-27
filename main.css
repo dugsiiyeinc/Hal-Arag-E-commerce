@@ -192,11 +192,14 @@ img {
     gap: 0.5rem;
     align-items: center;
     width: 100%;
+    
 }
 
 #navbar img {
     display: none;
-    width: 35%;
+    width: 30px;
+    height: 30px;
+
 }
 
 #navbar span {
@@ -507,6 +510,13 @@ img {
         align-items: center;
         justify-content: center;
         /* gap: 1rem; */
+    }
+    .header-title{
+        left: 5rem;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        
     }
 
 

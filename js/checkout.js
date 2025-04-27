@@ -158,6 +158,8 @@ function handleCheckout() {
             confirmButtonText: 'OK'
         }).then(() => {
             showThankYouPage();
+            // window.location.href = "/html/product.html"; // optional
+            
             // Clear the cart after successful checkout
 
             localStorage.removeItem("cart");
@@ -165,7 +167,6 @@ function handleCheckout() {
             cartItems.innerHTML = ""; 
             
             // Clear the cart items in the HTML
-            // window.location.href = "/html/cart.html"; // optional
         });
     }
 }
@@ -209,6 +210,7 @@ function showThankYouPage() {
     document.getElementById('orderId').innerText = '#' + orderId;
     document.getElementById('orderTotal').innerText = '$' + totalPrice.toFixed(2);
     document.getElementById('orderQuantity').innerText = totalQuantity + ' items';
+
 }
 
 
