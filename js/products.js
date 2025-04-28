@@ -61,8 +61,8 @@ function filterProducts() {
     filtered = filtered.filter(product => product.price >= min && product.price <= max);
   }
 
-  // Ku muuji filtered products
   displayProduct(filtered);
+
 }
 
 // Event listeners
@@ -141,16 +141,17 @@ function showFilteredProducts(filteredProducts) {
           title: 'No user is logged in!',
           text: 'Please sign up or log in first to add items to your cart!',
           confirmButtonText: 'Okay',
+          
         })
         .then(() => {
           window.location.href = "/html/login.html"; 
         });
-        
+        return;
       }
   
       let product = products.find((product) => product.id == id);
       addToCart(product);
-      displayCartItem(product); // haddii aad haysato displayCartItem() function
+      displayCartItem(product); 
       countItemInTheCart();
 
   
@@ -161,8 +162,6 @@ function showFilteredProducts(filteredProducts) {
 }
 
 const cartBtn = document.querySelector("#cartBtn")
-// const cartModal = document.querySelector("#cartModal")
-// const closeCartModal = document.querySelector("#closeCartModal")
 const cartItems = document.querySelector("#cartItems")
 
 
@@ -170,7 +169,7 @@ function addToCart(item) {
   let carts = JSON.parse(localStorage.getItem("cart")) || [];
   let existingToCart = carts.find((cartItem) => cartItem.id === item.id)
   if (existingToCart) {
-    existingToCart.quantity += 0;
+    existingToCart.quantity += 1;
   } else {
     carts.push({ ...item, quantity: 1 });
   }

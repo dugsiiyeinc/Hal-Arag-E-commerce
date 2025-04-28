@@ -141,27 +141,105 @@ function scrollLeftSection(sectionId){
 }
 
 
-// This is script file
-$('.testimonials-container').owlCarousel({
-    loop:true,
-    autoplay:true,
-    autoplayTimeout:6000,
-    margin:10,
-    nav:true,
-    navText:["<i class='fa-solid fa-arrow-left'></i>",
-             "<i class='fa-solid fa-arrow-right'></i>"],
-    responsive:{
-        0:{
-            items:1,
-            nav:false
-        },
-        600:{
-            items:1,
-            nav:true
-        },
-        768:{
-            items:2
-        },
+
+
+
+const testimonialsData = [
+  {
+    title: "What Our Happy Clients Say",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+    image: "/image/image1.jpg",
+    name: "Person One",
+    description: "CEO of Company"
+  },
+  {
+    title: "Voices That Inspire Us",
+    text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...",
+    image: "/image/image2.jpg",
+    name: "Person Two",
+    description: "Marketing Manager"
+  },
+  {
+    title: "Excellent Customer Service",
+    text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum...",
+    image: "/image/image3.jpg",
+    name: "Person Three",
+    description: "Project Manager"
+  },
+  {
+    title: "Highly Recommend Them",
+    text: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui...",
+    image: "/image/image4.jpg",
+    name: "Person Four",
+    description: "UX Designer"
+  },
+  {
+    title: "Professional and Fast",
+    text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium...",
+    image: "/image/image5.jpg",
+    name: "Person Five",
+    description: "Software Engineer"
+  },
+  {
+    title: "Truly Outstanding Work",
+    text: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit...",
+    image: "/image/image6.jpg",
+    name: "Person Six",
+    description: "Freelance Developer"
+  }
+];
+
+// Hadana sidaan horey u samaynay baan u loop gareyneynaa:
+const container = document.querySelector('.testimonials-container');
+
+testimonialsData.forEach((testimonial) => {
+  const card = document.createElement('div');
+  card.className = 'item testimonial-card';
+  card.innerHTML = `
+    <main class="test-card-body">
+      <div class="quote">
+        <i class="fa fa-quote-left"></i>
+        <h2>${testimonial.title}</h2>
+      </div>
+      <p>${testimonial.text}</p>
+      <div class="ratings">
+        ${'<i class="fa-solid fa-star"></i>'.repeat(5)}
+      </div>
+    </main>
+    <div class="profile">
+      <div class="profile-image">
+        <img src="${testimonial.image}" alt="${testimonial.name}">
+      </div>
+      <div class="profile-desc">
+        <span class="name">${testimonial.name}</span>
+        <span class="description">${testimonial.description}</span>
+      </div>
+    </div>
+  `;
+  container.appendChild(card);
+});
+
+$(document).ready(function(){
+  $(".owl-carousel").owlCarousel({
+    items: 2, // laba card hal mar
+    loop: true,
+    autoplay: true,
+    margin: 20,
+    dots: true,
+    nav: false,
+    responsive: {
+      0: { items: 1 },
+      768: { items: 2 }
     }
-})
+  });
+
+  // Custom Navigation
+  $('.next-btn').click(function() {
+    $('.owl-carousel').trigger('next.owl.carousel');
+  });
+
+  $('.prev-btn').click(function() {
+    $('.owl-carousel').trigger('prev.owl.carousel');
+  });
+});
 

@@ -148,25 +148,22 @@ function handleCheckout() {
         return;
     }
 
-    // Haddii dhammaan la buuxiyo
+ 
     if (isValid) {
         Swal.fire({
             title: 'Success!',
             text: 'Your order has been placed successfully!',
             icon: 'success',
-            confirmButtonColor: '#DD9D27', // Midab huruud ah sida sawirkaaga
+            confirmButtonColor: '#DD9D27', 
             confirmButtonText: 'OK'
         }).then(() => {
             showThankYouPage();
-            // window.location.href = "/html/product.html"; // optional
-            
             // Clear the cart after successful checkout
-
             localStorage.removeItem("cart");
             checkoutLayout.style.display = "none";         
             cartItems.innerHTML = ""; 
             
-            // Clear the cart items in the HTML
+         
         });
     }
 }
