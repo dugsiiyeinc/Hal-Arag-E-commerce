@@ -187,7 +187,6 @@ img {
 
 .user {
     display: flex;
-    /* flex-direction: column; */
     justify-content: center;
     gap: 0.5rem;
     align-items: center;
@@ -261,6 +260,7 @@ img {
 .header-title p {
     font-size: 2.2rem;
     margin-top: 5px;
+    color: #DD9D27;
 
 }
 
@@ -304,17 +304,18 @@ img {
     font-size: 2.3rem;
     font-weight: 900;
     color: rgb(0, 0, 0);
-    /* padding: 1rem; */
+    padding: 1rem;
+    color: #DD9D27;
     margin-top: 1rem;
 }
 
-.product-card {
+/* .product-card {
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
     height: auto;
 
-}
+} */
 
 .products-grid {
         display: flex;
@@ -326,18 +327,14 @@ img {
 }
 
 .product-card {
-    background: white;
-    color: black;
+   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     padding: 1rem;
-    /* box-shadow: 2px 0px 2px 2px rgba(0, 0, 0, 0.2); */
-    border: 2px solid #f5d495;
+    border: 1px solid #DD9D27;
     transition: transform 0.2s;
     flex: 0 0 auto;
     width: 250px;
     border-radius: 10px;
     overflow: hidden;
-    text-align: start;
-    justify-content: center;
     transition: transform 0.3s ease;
     position: relative;
 
@@ -720,112 +717,97 @@ img {
 }
 
 
-.testimonials-section {
+.testimonials {
     text-align: center;
-    padding: 50px 20px;
-    
+    padding: 2rem 0;
   }
-
   
-  .section-header h1 {
-    color: #D29E28;
+  .testimonials h1 {
     font-size: 2.5rem;
-    margin-bottom: 30px;
-    font-weight: bold;
+    margin-bottom: 3rem;
+    color: #d59f26;
+  }
+  
+  .testimonials-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
   }
   
   .testimonial-card {
-    background-color: #191B1F;
-    color: #B0B3B8;
-    padding: 30px;
-    align-items: start;
-    border: 2px solid #D29E28;
-    justify-content: start;
-    align-items: start;
+    background: #1b1d26;
+    color: #ccc;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    border: 2px solid #d59f26;
     display: flex;
     flex-direction: column;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    margin: 15px;
-    transition: 0.3s ease-in-out;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
   }
   
-  .test-card-body .quote {
-    display: flex;
-    /* align-items: center; */
-    gap: 10px;
-    margin-bottom: 20px;
+  .testimonial-card:hover {
+    transform: translateY(-10px);
   }
   
-  .test-card-body h2 {
-    color: #fff;
+  .quote {
+    font-size: 2rem;
+    color: #d59f26;
+    margin-bottom: 1rem;
+  }
+  
+  .testimonial-card h2 {
     font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 1rem;
   }
   
-  .test-card-body p {
-    margin: 20px 0;
+  .testimonial-card p {
+    font-size: 1rem;
     line-height: 1.6;
+    margin-bottom: 1rem;
   }
   
   .ratings {
-    margin-top: 10px;
-}
-
-.ratings i {
-    color: #F7B519;
-    align-items: start;
-    font-size: 1.2rem;
+    color: #ffc107;
+    margin-bottom: 1rem;
   }
   
   .profile {
-    margin-top: 20px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 15px;
+    gap: 1rem;
+    margin-top: 1rem;
   }
   
-  .profile-image img {
+  .profile img {
     width: 60px;
     height: 60px;
-    object-fit: cover;
     border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #d59f26;
   }
   
   .profile-desc {
     text-align: left;
   }
   
-  .profile-desc .name {
+  .profile-desc span:first-child {
     display: block;
     font-weight: bold;
-    color: #D29E28;
     font-size: 1.2rem;
+    color: #d59f26;
   }
   
-  .profile-desc .description {
-    color: #B0B3B8;
+  .profile-desc span:last-child {
     font-size: 0.9rem;
+    color: #999;
   }
   
-  /* Optional: Custom Navigation */
-  .custom-nav {
-    margin-top: 30px;
+  /* Responsive */
+  @media (max-width: 768px) {
+    .testimonials h1 {
+      font-size: 2rem;
+    }
   }
-  
-  .custom-nav button {
-    background: #191B1F;
-    border: none;
-    color: #fff;
-    font-size: 1.5rem;
-    padding: 10px 15px;
-    margin: 0 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  .custom-nav button:hover {
-    background: #D29E28;
-  }
-  
