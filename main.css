@@ -8,9 +8,7 @@
 }
 
 body {
-    /* background-color: rgb(255, 255, 255); */
     font-family: "Roboto", serif;
-    /* color: white; */
 }
 
 .container {
@@ -399,15 +397,6 @@ img {
     background-color: #9a7023;
 }
 
-.about-image {
-    background-image: url("image/travel-concept-with-shirt-headphones.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 400px;
-    margin-top: 2rem;
-    border-radius: 1rem;
-}
 
 
 /* style.css ama header.css ku dar */
@@ -657,20 +646,6 @@ img {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    .hero {
-        height: 300px;
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-
-    }
-
-    .header-title {
-        text-align: center;
-        padding-top: 5vh;
-        margin-right: 20px;
-    }
-
     .header-title h1 {
         font-size: 2.5rem;
         margin-bottom: 1rem;
@@ -686,13 +661,7 @@ img {
 
 
     }
-    .cart-item {
-        margin-top: 1rem;
-    }
-
-    .products-grid {
-        grid-template-columns: repeat(1, 1fr);
-    }
+ 
     
 #navbar img {
     display: none;
