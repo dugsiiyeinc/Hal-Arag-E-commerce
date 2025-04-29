@@ -131,7 +131,7 @@
 .image-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 200px);
+  /* grid-template-rows: repeat(2, 200px); */
   gap: 20px;
   margin: 20px;
 }
@@ -142,6 +142,7 @@
   background-repeat: no-repeat;
   border-radius: 10px;
   transition: background-image 1s ease-in-out;
+  height: 350px;
 }
 .arrivals h2{
     font-size: 2rem;
