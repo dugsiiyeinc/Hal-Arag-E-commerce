@@ -81,18 +81,17 @@ function handleCheckout() {
     const address = document.getElementById('address');
     const country = document.getElementById('country');
     const city = document.getElementById('city');
+    const paidAmountInput = document.getElementById('paidAmount');
 
     let isValid = true;
 
-    const fields = [name, phone, address, country, city];
+    const fields = [name, phone, address, country, city, paidAmountInput];
 
-    // Function si loo highlight-gareeyo field-ka buuxin la'
     function highlightField(field) {
         field.style.border = '2px solid red';
         field.focus();
     }
 
-    // Function si loo reset-gareeyo field marka uu buuxiyo
     function resetFieldBorder(field) {
         field.addEventListener('input', () => {
             if (field.value.trim() !== '') {
@@ -106,66 +105,65 @@ function handleCheckout() {
         });
     }
 
-    // Reset borders
     fields.forEach(field => {
         field.style.border = '';
         resetFieldBorder(field);
     });
 
-    // Validation
+    // Field validation
     if (name.value.trim() === '') {
         highlightField(name);
-        isValid = false;
         Swal.fire('Error', 'Please enter your full name!', 'error');
         return;
     }
 
     if (phone.value.trim() === '') {
         highlightField(phone);
-        isValid = false;
         Swal.fire('Error', 'Please enter your phone number!', 'error');
         return;
     }
 
     if (address.value.trim() === '') {
         highlightField(address);
-        isValid = false;
         Swal.fire('Error', 'Please enter your address!', 'error');
         return;
     }
 
     if (country.value.trim() === '') {
         highlightField(country);
-        isValid = false;
         Swal.fire('Error', 'Please choose your country!', 'error');
         return;
     }
 
     if (city.value.trim() === '') {
         highlightField(city);
-        isValid = false;
         Swal.fire('Error', 'Please choose your city!', 'error');
         return;
     }
 
- 
-    if (isValid) {
-        Swal.fire({
-            title: 'Success!',
-            text: 'Your order has been placed successfully!',
-            icon: 'success',
-            confirmButtonColor: '#DD9D27', 
-            confirmButtonText: 'OK'
-        }).then(() => {
-            showThankYouPage();
-            // Clear the cart after successful checkout
-            localStorage.removeItem("cart");
-            checkoutLayout.style.display = "none";         
-            cartItems.innerHTML = ""; 
-            
-         
-        });
+    // Validate paid amount
+    const paidAmount = parseFloat(paidAmountInput.value);
+    const totalPrice = parseFloat(document.querySelector(".totalPrice").textContent.replace('$', ''));
+
+    if (isNaN(paidAmount) || paidAmount.toFixed(2) !== totalPrice.toFixed(2)) {
+        highlightField(paidAmountInput);
+        Swal.fire('Error', 'The amount paid must exactly match the total price.', 'error');
+        return;
     }
+
+    // Success
+    Swal.fire({
+        title: 'Success!',
+        text: 'Your order has been placed successfully!',
+        icon: 'success',
+        confirmButtonColor: '#DD9D27',
+        confirmButtonText: 'OK'
+    }).then(() => {
+        showThankYouPage();
+        localStorage.removeItem("cart");
+        checkoutLayout.style.display = "none";
+        cartItems.innerHTML = "";
+    });
 }
 
 function showThankYouPage() {

@@ -11,7 +11,7 @@
     box-shadow: 0  0  2px #5555;
     border-radius: 20px;
     padding: 40px;
-    height: 100vh;
+    height: 30%;
 }
 .checkoutLayout .right .form{
     display: grid;
@@ -21,23 +21,29 @@
     padding-bottom: 20px;
 }
 .checkoutLayout .form h1,
-.checkoutLayout .form .group:nth-child(-n+3){
+.checkoutLayout .form .group:nth-child(-n+4){
     grid-column-start: 1;
     color: #000000;
     grid-column-end: 3;
 }
+/* Already existing rule for input and select is fine: */
 .checkoutLayout .form input, 
-.checkoutLayout .form select
-{
+.checkoutLayout .form select {
     width: 100%;
     padding: 10px 20px;
     box-sizing: border-box;
-    /* border-radius: 20px; */
     margin-top: 10px;
     border: 1px solid #000;
-    /* background-color: #c7c6c4; */
-    /* color: #ffffff; */
 }
+
+/* Ensure labels also have spacing consistency */
+.checkoutLayout .form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+
 .checkoutLayout .form input:focus,
 .checkoutLayout .right .return .row{
     display: flex;
@@ -211,6 +217,7 @@
     padding: 10px 0;
     border-bottom: 1px solid #ddd;
  }
+
 @media (max-width: 768px) {
     .checkoutLayout{
         grid-template-columns: 1fr;
@@ -220,5 +227,9 @@
     }
     .checkoutLayout .form{
         grid-template-columns: 1fr;
+    }
+    .thankyou-container{
+        margin: 2rem;
+        padding: 20px;
     }
 }

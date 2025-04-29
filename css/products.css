@@ -101,6 +101,13 @@
     border-color: #DD9D27;
 }
 
+@media (max-width: 768px) {
+    .search{
+        margin-top: 6rem;
+        flex-direction: column;
+        align-items: center;
+    }
+}
 
 
 
