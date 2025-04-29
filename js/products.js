@@ -124,8 +124,35 @@ function showFilteredProducts(filteredProducts) {
       </div>
     `;
   }).join('');
-  // addToCart(item)
+
   itemProducts.innerHTML = newItem;
+
+  const addToCartBtns = itemProducts.querySelectorAll(".add-to-cart-btn");
+  addToCartBtns.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      const { id } = button.dataset;
+      const onlineUser = JSON.parse(localStorage.getItem("onlineUser"));
+      
+      if (!onlineUser) {
+        e.preventDefault();
+        Swal.fire({
+          icon: 'warning',
+          title: 'No user is logged in!',
+          text: 'Please sign up or log in first to add items to your cart!',
+          confirmButtonText: 'Okay',
+        })
+        .then(() => {
+          window.location.href = "/html/login.html"; 
+        });
+        return;
+      }
+  
+      let product = filteredProducts.find((product) => product.id == id);
+      addToCart(product);
+      displayCartItem(product); 
+      countItemInTheCart();
+    });
+  });
 }
 
   itemProducts.innerHTML = newItem;

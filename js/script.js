@@ -155,35 +155,35 @@ const testimonialsData = [
   {
     title: "Voices That Inspire Us",
     text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...",
-    image: "/image/image2.jpg",
+    image: "/image/image1.jpg",
     name: "Person Two",
     description: "Marketing Manager"
   },
   {
     title: "Excellent Customer Service",
     text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum...",
-    image: "/image/image3.jpg",
+    image: "/image/image1.jpg",
     name: "Person Three",
     description: "Project Manager"
   },
   {
     title: "Highly Recommend Them",
     text: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui...",
-    image: "/image/image4.jpg",
+    image: "/image/image1.jpg",
     name: "Person Four",
     description: "UX Designer"
   },
   {
     title: "Professional and Fast",
     text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium...",
-    image: "/image/image5.jpg",
+    image: "/image/image1.jpg",
     name: "Person Five",
     description: "Software Engineer"
   },
   {
     title: "Truly Outstanding Work",
     text: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit...",
-    image: "/image/image6.jpg",
+    image: "/image/image1.jpg",
     name: "Person Six",
     description: "Freelance Developer"
   }

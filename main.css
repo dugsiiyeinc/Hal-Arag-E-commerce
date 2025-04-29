@@ -703,7 +703,7 @@ img {
   
   .test-card-body .quote {
     display: flex;
-    /* align-items: center; */
+    align-items: start;
     gap: 10px;
     margin-bottom: 20px;
   }
@@ -720,6 +720,7 @@ img {
   
   .ratings {
     margin-top: 10px;
+    align-items: start;
 }
 
 .ratings i {
@@ -768,7 +769,7 @@ img {
     background: #191B1F;
     border: none;
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1rem;
     padding: 10px 15px;
     margin: 0 10px;
     border-radius: 50%;
